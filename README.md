@@ -7,8 +7,9 @@ The folders below represent each product I have redesigned. Together, they share
 * Main Website
 * SharePoint
 
-|product|Case Study|Status|
+| Product | Case Study | Status |
 |-----|------|------|
-|Main Website| N/A | Work In Progress|
+| Main Website | N/A | Work In Progress |
+| SharePoint | N/A | Work In Progress |
 
 Each product I have redesigned includes a short case study detailing my design decisions and reasoning. My thought process might not be perfect, but this project is ultimately a learning experience.
