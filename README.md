@@ -1,3 +1,5 @@
+# Microsoft Product UI Redesign
+
 <p align="center">
   <a>
     <img src="./headerV1.png" alt="logo" width="100%"; height="auto";/>
@@ -11,8 +13,6 @@
   <a href="#links">Links</a> •
   <a href="#credits">Credits</a>
 </p>
-
-# Microsoft Product UI Redesign
 
 ## About & Why?
 This project is dedicated to redesigning Microsoft pages and sites. I have always appreciated what Microsoft does as a company and wanted to use their platforms to practice my UI/UX design skills. One area where Microsoft often struggles is consistency and avoiding bloat across their websites. I believe they have great products that can be made even better, so this serves as a fun project to reimagine their web presence.
