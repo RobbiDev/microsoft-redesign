@@ -4,11 +4,11 @@ This project is dedicated to redesigning Microsoft pages and sites. I have alway
 
 The folders below represent each product I have redesigned. Together, they share a unified theme and consistent design language. I wanted to go beyond just a basic visual update.
 
-* Main Microsoft Website
+* Main Website
 * SharePoint
 
-|-----|------|------|
 |product|Case Study|Status|
 |-----|------|------|
+|Main Website| N/A | Work In Progress|
 
 Each product I have redesigned includes a short case study detailing my design decisions and reasoning. My thought process might not be perfect, but this project is ultimately a learning experience.
