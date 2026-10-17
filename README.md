@@ -1,6 +1,6 @@
 <p align="center">
   <a>
-    <img src="../headerV1" alt="logo" width="100%"; height="auto";/>
+    <img src="./headerV1" alt="logo" width="100%"; height="auto";/>
   </a>
 </p>
 <p align="center">A Project that is dedicated to redesigning Microsoft Products & Sites to practice my UI/UX design skills.</p>
