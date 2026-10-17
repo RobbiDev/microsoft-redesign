@@ -1,5 +1,5 @@
 <p align="center">
-  <h1>Microsoft Products Redesign Project</h1>
+  <p>Microsoft Products Redesign Project</p>
 </p>
 <p align="center">A Project that is dedicated to redesigning Microsoft Products & Sites to practice my UI/UX design skills.</p>
 </p>
