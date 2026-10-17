@@ -1,5 +1,4 @@
-# Microsoft Product UI Redesign
-
+<h1 align="center">Microsoft Product UI Redesign</h1>
 <p align="center">
   <a>
     <img src="./headerV1.png" alt="logo" width="100%"; height="auto";/>
@@ -8,10 +7,10 @@
 <p align="center">A Project that is dedicated to redesigning Microsoft Products & Sites to practice my UI/UX design skills.</p>
 </p>
 <p align="center">
-  <a href="#about">About</a> •
+  <!-- <a href="#about">About</a> •
   <a href="#prerequisites">The API</a> •
   <a href="#links">Links</a> •
-  <a href="#credits">Credits</a>
+  <a href="#credits">Credits</a> -->
 </p>
 
 ## About & Why?
