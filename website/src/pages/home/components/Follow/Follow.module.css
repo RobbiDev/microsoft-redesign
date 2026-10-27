@@ -1,0 +1,16 @@
+.section { background: #fff; padding: 24px 24px 72px; text-align: center; }
+.section h2 { margin: 0; font-size: 20px; font-weight: 600; }
+.list { margin-top: 24px; display: flex; justify-content: center; gap: 40px; }
+.list a {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  border: 1px solid var(--line-2);
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 18px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s var(--ease-out);
+}
+.list a:hover { text-decoration: none; transform: translateY(-2px); }

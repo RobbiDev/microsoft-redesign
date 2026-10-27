@@ -1,0 +1,104 @@
+/* Full-width scroller; cards line up with the page content and scroll out to the window edge. */
+.scroller {
+  --pad: max(32px, calc((100vw - var(--max)) / 2 + 32px));
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x proximity;
+  scroll-padding-inline: var(--pad);
+  overscroll-behavior-x: contain; /* trackpad swipes don't trigger browser back */
+  scrollbar-width: none;
+  margin-block: -24px; /* room for hover and entrance motion without clipping */
+  cursor: grab;
+}
+.scroller::-webkit-scrollbar { display: none; }
+.dragging { scroll-snap-type: none; cursor: grabbing; user-select: none; }
+.track {
+  --card-w: min(440px, 80vw);
+  --gap: 28px;
+  display: flex;
+  gap: var(--gap);
+  align-items: center;
+  width: max-content;
+  padding: 24px var(--pad);
+}
+.track img { -webkit-user-drag: none; }
+.card {
+  position: relative;
+  flex: none;
+  width: var(--card-w);
+  height: 640px;
+  border-radius: 24px;
+  overflow: hidden;
+  background: var(--card-dark);
+  color: #fff;
+  scroll-snap-align: start;
+}
+.tall { height: 700px; }
+.overlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 120px 28px 28px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 55%);
+  pointer-events: none;
+}
+.overlay a, .overlay button { pointer-events: auto; }
+.badge {
+  display: inline-block;
+  background: var(--yellow);
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 6px 14px;
+  margin-bottom: 14px;
+}
+.titleRow { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; }
+.titleRow h3 { margin: 0; font-size: 34px; font-weight: 500; line-height: 1.15; letter-spacing: -0.01em; text-wrap: balance; }
+.expand { flex: none; background: none; border: 0; color: #fff; cursor: pointer; padding: 4px; transition: transform 0.3s; }
+/* Description slides open: on hover (mouse), keyboard focus, or the chevron (touch). */
+.detailWrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 0.35s var(--ease-out), opacity 0.25s;
+}
+.detail { min-height: 0; overflow: hidden; margin: 0; padding-top: 12px; font-size: 16px; line-height: 1.5; color: #e6e6ea; }
+.card[data-open] .detailWrap,
+.card:has(:focus-visible) .detailWrap { grid-template-rows: 1fr; opacity: 1; }
+.card[data-open] .expand { transform: rotate(180deg); }
+@media (hover: hover) {
+  .card:hover .detailWrap { grid-template-rows: 1fr; opacity: 1; }
+  .card:hover .expand { transform: rotate(180deg); }
+  .card:hover .media { transform: scale(1.03); }
+}
+.media { transition: transform 0.6s var(--ease-out); }
+.cta { margin-top: 20px; }
+.media { object-position: center top; }
+
+/* Light photos (e.g. Microsoft 365, Surface Laptop 13): white fade with dark text. */
+.light { background: #f4f4f1; color: var(--ink); }
+.light .overlay { background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.92) 50%); }
+.light .expand { color: var(--ink); }
+.light .detail { color: var(--ink-3); }
+.light .cta { background: var(--ink); color: #fff; }
+.light .cta:hover { background: #000; }
+
+.controls { max-width: var(--max); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 12px; }
+
+/* Personal/Business switch: cards drop away, then the new set rises in one after another. */
+.leaving .card { animation: cardOut 0.24s ease-in both; animation-delay: calc(min(var(--i), 3) * 35ms); }
+.entering .card { animation: cardIn 0.6s var(--ease-out) both; animation-delay: calc(min(var(--i), 4) * 70ms); }
+@keyframes cardOut {
+  to { opacity: 0; transform: translateY(16px) scale(0.97); }
+}
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(36px) scale(0.96); }
+}
+
+@media (max-width: 600px) {
+  .scroller { --pad: 16px; }
+  .track { --gap: 16px; }
+  .controls { padding: 0 16px; }
+  .card { height: 520px; }
+  .tall { height: 560px; }
+  .titleRow h3 { font-size: 28px; }
+}

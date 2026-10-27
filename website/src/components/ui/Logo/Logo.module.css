@@ -1,0 +1,9 @@
+.logo { --sq: 11px; display: flex; align-items: center; gap: 10px; flex: none; font-size: 20px; font-weight: 600; color: #737373; }
+.logo:hover { text-decoration: none; color: #737373; }
+.small { --sq: 9px; gap: 8px; font-size: 17px; }
+.squares { display: grid; grid-template-columns: var(--sq) var(--sq); gap: 2px; }
+.squares i { width: var(--sq); height: var(--sq); }
+.squares i:nth-child(1) { background: #f25022; }
+.squares i:nth-child(2) { background: #7fba00; }
+.squares i:nth-child(3) { background: #00a4ef; }
+.squares i:nth-child(4) { background: #ffb900; }

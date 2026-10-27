@@ -1,0 +1,139 @@
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: flex-end;
+  /* Leaves a sliver of the next section visible so it's clear the page continues. */
+  height: clamp(560px, calc(100svh - var(--header-h, 64px) - 40px), 920px);
+  overflow: hidden;
+  background: #0a0f1f;
+  color: #fff;
+}
+
+/* ── Background ── */
+.backdrop { position: absolute; inset: 0; z-index: -2; overflow: hidden; }
+
+/* Slow-moving color wash shown until (or instead of) the video. */
+.backdrop::before {
+  content: '';
+  position: absolute;
+  inset: -25%;
+  background:
+    radial-gradient(28% 32% at 30% 35%, rgba(242, 80, 34, 0.55), transparent 70%),
+    radial-gradient(28% 32% at 70% 30%, rgba(127, 186, 0, 0.45), transparent 70%),
+    radial-gradient(30% 34% at 35% 72%, rgba(0, 164, 239, 0.55), transparent 70%),
+    radial-gradient(28% 32% at 72% 70%, rgba(255, 185, 0, 0.45), transparent 70%);
+  filter: blur(60px);
+  animation: drift 22s ease-in-out infinite alternate;
+}
+@keyframes drift {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(14deg) scale(1.12) translate(3%, -2%); }
+  100% { transform: rotate(-10deg) scale(1.05) translate(-3%, 2%); }
+}
+
+.video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.9s ease-out;
+}
+.visible { opacity: 1; }
+
+/* Darkens the lower-left where the text sits so it stays readable over any footage. */
+.scrim {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 40%, rgba(0, 0, 0, 0) 70%),
+    linear-gradient(to right, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 60%);
+}
+
+/* ── Copy ── */
+.inner {
+  width: 100%;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 32px clamp(48px, 7vw, 96px);
+}
+.title {
+  margin: 0;
+  max-width: 1120px;
+  font-size: clamp(44px, 6.4vw, 104px);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 1;
+  text-wrap: balance;
+  text-shadow: 0 2px 30px rgba(0, 0, 0, 0.25);
+}
+.word {
+  display: inline-block;
+  animation: rise 0.8s var(--ease-out) both;
+  animation-delay: calc(120ms + var(--i) * 55ms);
+}
+.rest {
+  color: rgba(255, 255, 255, 0.62);
+  animation: fade 1s ease-out 0.55s both;
+}
+.actions {
+  margin-top: 44px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 28px;
+  animation: rise 0.8s var(--ease-out) 0.7s both;
+}
+.primary {
+  background: #fff;
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 15px 26px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background 0.2s, transform 0.2s var(--ease-out);
+}
+.primary:hover { background: #e6e6ea; color: var(--ink); text-decoration: none; transform: translateY(-1px); }
+.secondary { color: #fff; font-size: 16px; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+.secondary:hover { color: #fff; }
+.secondary svg { transition: transform 0.2s var(--ease-out); }
+.secondary:hover svg { transform: translateX(3px); }
+
+/* Video pause/play control, bottom-right like most video heroes. */
+.playToggle {
+  position: absolute;
+  bottom: 28px;
+  right: 32px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background 0.2s;
+}
+.playToggle:hover { background: rgba(0, 0, 0, 0.5); }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(0.4em); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 600px) {
+  .hero { height: clamp(520px, calc(100svh - var(--header-h, 64px) - 32px), 760px); }
+  .inner { padding: 0 16px 48px; }
+  .title { font-size: clamp(40px, 11vw, 64px); }
+  .actions { margin-top: 32px; }
+  .playToggle { bottom: 20px; right: 16px; }
+}

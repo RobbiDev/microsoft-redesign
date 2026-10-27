@@ -1,0 +1,21 @@
+.dock { position: fixed; right: 20px; bottom: 20px; z-index: 60; display: flex; flex-direction: column; align-items: flex-end; gap: 14px; }
+.top {
+  background: var(--ink);
+  color: #fff;
+  border: 0;
+  border-radius: 999px;
+  padding: 14px 20px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  animation: rise 0.25s var(--ease-out);
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}

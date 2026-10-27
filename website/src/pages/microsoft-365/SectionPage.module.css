@@ -1,0 +1,17 @@
+/* Shared plain section styles for Microsoft 365 pages. */
+.section { background: #fff; padding: 88px 24px; scroll-margin-top: calc(var(--header-h, 64px) + 60px); }
+.inner { max-width: 1240px; margin: 0 auto; }
+.eyebrow { margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--blue); }
+.title { margin: 12px 0 0; font-size: clamp(30px, 3.6vw, 48px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.08; }
+.body { margin: 14px 0 0; max-width: 680px; font-size: 18px; line-height: 1.55; color: var(--ink-2); }
+.narrow { margin-top: 32px; max-width: 340px; }
+.banner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px; padding: 28px 32px; border-radius: 20px; background: #faf6f1; }
+.banner h2 { margin: 0; font-size: 24px; font-weight: 600; }
+.banner p { margin: 6px 0 0; font-size: 16px; color: var(--ink-3); }
+.button { padding: 12px 20px; border-radius: 999px; background: var(--ink); color: #fff; font-weight: 600; white-space: nowrap; }
+.button:hover { background: #000; color: #fff; text-decoration: none; }
+
+@media (max-width: 600px) {
+  .section { padding: 56px 16px; }
+  .banner { padding: 24px 20px; }
+}

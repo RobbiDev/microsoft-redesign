@@ -1,0 +1,23 @@
+.card {
+  background: #fff;
+  border-radius: 24px;
+  padding: 12px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+  gap: 24px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+.text { padding: 36px 24px; display: flex; flex-direction: column; min-height: 440px; }
+.spacer { flex: 1; min-height: 24px; }
+.title { margin: 0; font-size: 40px; font-weight: 500; letter-spacing: -0.02em; line-height: 1.1; }
+.body { margin: 16px 0 0; font-size: 19px; line-height: 1.55; color: var(--ink-2); max-width: 560px; text-wrap: pretty; }
+.media { position: relative; min-height: 440px; border-radius: 16px; overflow: hidden; background: var(--card-dark); }
+
+@media (max-width: 600px) {
+  .text { min-height: 0; padding: 24px 12px; }
+  .title { font-size: 32px; }
+  .body { font-size: 17px; }
+  .spacer { flex: none; min-height: 0; }
+  .cta { margin-top: 28px; }
+  .media { min-height: 280px; }
+}
