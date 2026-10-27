@@ -9,13 +9,20 @@ import { copyFileSync, cpSync, existsSync, rmSync, writeFileSync } from 'node:fs
 
 const DIST = 'dist';
 const DOMAIN = 'microsoft.robbyj.dev';
+// Where the site is served from: '' on microsoft.robbyj.dev, '/microsoft-redesign' on robbidev.github.io.
+// The GitHub Pages workflow sets this; locally it defaults to the domain root.
+const SITE_BASE = (process.env.SITE_BASE || '').replace(/\/+$/, '');
 const run = (cmd, cwd) => execSync(cmd, { cwd, stdio: 'inherit' });
 
 rmSync(DIST, { recursive: true, force: true });
 
 // 1. The microsoft.com redesign at /main/
 if (!existsSync('website/node_modules')) run('npm ci', 'website');
-run(`npx vite build --base=/main/ --outDir=../${DIST}/main --emptyOutDir`, 'website');
+execSync(`npx vite build --base=${SITE_BASE}/main/ --outDir=../${DIST}/main --emptyOutDir`, {
+  cwd: 'website',
+  stdio: 'inherit',
+  env: { ...process.env, VITE_SITE_BASE: SITE_BASE },
+});
 
 // 2. The home page at /, with the repo README and header image beside it
 cpSync('home', DIST, { recursive: true, filter: (src) => !src.endsWith('home/README.md') });
@@ -29,4 +36,4 @@ copyFileSync(`${DIST}/main/index.html`, `${DIST}/404.html`);
 writeFileSync(`${DIST}/CNAME`, `${DOMAIN}\n`);
 writeFileSync(`${DIST}/.nojekyll`, '');
 
-console.log(`\nBuilt ${DIST}/ for ${DOMAIN}`);
+console.log(`\nBuilt ${DIST}/ for ${DOMAIN}${SITE_BASE ? ` (served under ${SITE_BASE})` : ''}`);

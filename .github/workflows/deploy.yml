@@ -32,10 +32,15 @@ jobs:
       - name: Install the redesign's dependencies
         run: npm ci --prefix website
 
+      # Reports where Pages serves the site: '/microsoft-redesign' on robbidev.github.io,
+      # or '' once the custom domain (microsoft.robbyj.dev) is connected.
+      - id: pages
+        uses: actions/configure-pages@v5
+
       - name: Build the site into dist/
         run: npm run build
-
-      - uses: actions/configure-pages@v5
+        env:
+          SITE_BASE: ${{ steps.pages.outputs.base_path }}
 
       - uses: actions/upload-pages-artifact@v3
         with:

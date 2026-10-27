@@ -1,4 +1,5 @@
 // Add new redesigns here. `path` is where it lives on microsoft.robbyj.dev.
+// Links are made relative ("/main" → "main/") so the page also works under robbidev.github.io/microsoft-redesign/.
 const REDESIGNS = [
   {
     name: "Main Website",
@@ -49,7 +50,7 @@ function renderGrid(filter = "") {
       <h3>${r.name}</h3>
       <p>${r.description}</p>
       <div class="card-links">
-        <a class="btn primary" href="${r.path}">View redesign</a>
+        <a class="btn primary" href="${r.path.replace(/^\//, "")}/">View redesign</a>
         <a class="btn" href="${r.caseStudy}" target="_blank" rel="noopener">Case study</a>
       </div>`;
     grid.appendChild(card);
