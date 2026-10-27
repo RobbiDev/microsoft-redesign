@@ -1,4 +1,5 @@
 import { products } from '@/data/products.js';
+import { asset } from '@/app/base.js';
 
 // Copy for the Microsoft Store landing page (/store).
 
@@ -7,16 +8,16 @@ export const storeHero = {
   body: 'Surface, Xbox, Microsoft 365 and Windows PCs, with free shipping and easy returns on every order.',
   primary: { label: 'Shop Surface', href: '/store/surface' },
   secondary: { label: 'Shop Xbox', href: '/store/xbox' },
-  image: '/images/products/surface-laptop-ultra.avif',
+  image: asset('/images/products/surface-laptop-ultra.avif'),
 };
 
 export const categories = [
-  { label: 'Surface', href: '/store/surface', image: '/images/products/surface-laptop-13.avif', theme: 'light' },
-  { label: 'Xbox', href: '/store/xbox', image: '/images/products/xbox-series-x.avif' },
-  { label: 'Microsoft 365', href: '/store/microsoft-365', image: '/images/products/microsoft-365.avif', theme: 'light' },
-  { label: 'Windows PCs', href: '/store/windows-pcs', image: '/images/products/windows-rtx-spark.avif' },
-  { label: 'Accessories', href: '/store/accessories', image: '/images/products/xbox-controller.avif' },
-  { label: 'Xbox Game Pass', href: '/store/xbox-game-pass', image: '/images/products/xbox-game-pass.avif' },
+  { label: 'Surface', href: '/store/surface', image: asset('/images/products/surface-laptop-13.avif'), theme: 'light' },
+  { label: 'Xbox', href: '/store/xbox', image: asset('/images/products/xbox-series-x.avif') },
+  { label: 'Microsoft 365', href: '/store/microsoft-365', image: asset('/images/products/microsoft-365.avif'), theme: 'light' },
+  { label: 'Windows PCs', href: '/store/windows-pcs', image: asset('/images/products/windows-rtx-spark.avif') },
+  { label: 'Accessories', href: '/store/accessories', image: asset('/images/products/xbox-controller.avif') },
+  { label: 'Xbox Game Pass', href: '/store/xbox-game-pass', image: asset('/images/products/xbox-game-pass.avif') },
 ];
 
 export const featured = {

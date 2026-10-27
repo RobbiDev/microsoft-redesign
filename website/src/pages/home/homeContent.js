@@ -1,4 +1,5 @@
 import { products } from '@/data/products.js';
+import { asset } from '@/app/base.js';
 
 // All copy for the homepage lives here so components stay purely presentational.
 
@@ -8,7 +9,7 @@ export const hero = {
   primary: { label: 'Explore products', href: '#explore' },
   secondary: { label: 'About Microsoft', href: '/about' },
   // Drop files into public/video/. Until hero.mp4 exists, an animated gradient shows instead.
-  video: { src: '/video/hero.mp4', poster: '/video/hero-poster.jpg' },
+  video: { src: asset('/video/hero.mp4'), poster: asset('/video/hero-poster.jpg') },
 };
 
 export const explore = {
@@ -20,14 +21,14 @@ export const explore = {
     title: 'For your business',
     // Images live in public/images/business/ (the first reuses a product photo).
     products: [
-      { id: 'surface-laptop-ultra-business', href: '/store/business/surface-laptop-ultra', image: '/images/products/surface-laptop-ultra.avif', alt: 'Surface Laptop Ultra in black, open at an angle', badge: 'New', title: 'Surface Laptop Ultra for Business', cta: 'Shop now', detail: 'Workstation-class power in a laptop, with the security and management tools IT teams need.' },
-      { id: 'ignite', href: '/events/ignite', image: '/images/business/ignite.avif', alt: 'The Microsoft logo glowing in colored glass', badge: '', title: 'Microsoft Ignite is almost here', cta: 'Register now', detail: 'Our annual event for business leaders and builders, covering the latest in AI, cloud and security.' },
-      { id: 'microsoft-365-copilot', href: '/microsoft-365/copilot', image: '/images/business/microsoft-365-copilot.avif', alt: 'The Microsoft 365 Copilot app open on its chat screen', badge: '', theme: 'light', title: 'AI built for work', cta: 'Learn more', detail: 'Microsoft 365 Copilot works across your apps and data to draft, summarize and analyze.' },
-      { id: 'surface-rtx-spark-dev-box', href: '/store/business/surface-rtx-spark-dev-box', image: '/images/business/surface-rtx-spark-dev-box.avif', alt: 'A black Surface RTX Spark Dev Box, seen from a low angle', badge: 'New', theme: 'light', title: 'Surface RTX Spark Dev Box for Business', cta: 'Learn more', detail: 'A compact AI workstation for building, tuning and testing models right at your desk.' },
-      { id: 'azure', href: '/azure', image: '/images/business/azure.avif', alt: 'A translucent ribbon over a blue and orange gradient', badge: '', theme: 'light', title: 'Build what’s next on Azure', cta: 'Start free', detail: 'Cloud, data and AI services that scale with your business, with pay-as-you-go pricing.' },
-      { id: 'microsoft-ai', href: '/ai', image: '/images/business/microsoft-ai.avif', alt: 'Flowing ribbons in pink and orange', badge: '', theme: 'light', title: 'Put Microsoft AI to work', cta: 'Learn more', detail: 'Models, tools and guidance for bringing AI into your products and processes responsibly.' },
-      { id: 'microsoft-teams', href: '/microsoft-teams', image: '/images/business/microsoft-teams.avif', alt: 'Four coworkers on a Microsoft Teams video call', badge: '', theme: 'light', title: 'Bring your team together in Teams', cta: 'See plans', detail: 'Chat, meetings, calls and files in one place, for teams of any size.' },
-      { id: 'windows-11-pro', href: '/windows/business', image: '/images/business/windows-11-pro.avif', alt: 'Two laptops in mid-air showing the Windows 11 wallpaper', badge: '', title: 'Windows 11 Pro', cta: 'Learn more', detail: 'Built-in security and simple management for the PCs your business runs on.' },
+      { id: 'surface-laptop-ultra-business', href: '/store/business/surface-laptop-ultra', image: asset('/images/products/surface-laptop-ultra.avif'), alt: 'Surface Laptop Ultra in black, open at an angle', badge: 'New', title: 'Surface Laptop Ultra for Business', cta: 'Shop now', detail: 'Workstation-class power in a laptop, with the security and management tools IT teams need.' },
+      { id: 'ignite', href: '/events/ignite', image: asset('/images/business/ignite.avif'), alt: 'The Microsoft logo glowing in colored glass', badge: '', title: 'Microsoft Ignite is almost here', cta: 'Register now', detail: 'Our annual event for business leaders and builders, covering the latest in AI, cloud and security.' },
+      { id: 'microsoft-365-copilot', href: '/microsoft-365/copilot', image: asset('/images/business/microsoft-365-copilot.avif'), alt: 'The Microsoft 365 Copilot app open on its chat screen', badge: '', theme: 'light', title: 'AI built for work', cta: 'Learn more', detail: 'Microsoft 365 Copilot works across your apps and data to draft, summarize and analyze.' },
+      { id: 'surface-rtx-spark-dev-box', href: '/store/business/surface-rtx-spark-dev-box', image: asset('/images/business/surface-rtx-spark-dev-box.avif'), alt: 'A black Surface RTX Spark Dev Box, seen from a low angle', badge: 'New', theme: 'light', title: 'Surface RTX Spark Dev Box for Business', cta: 'Learn more', detail: 'A compact AI workstation for building, tuning and testing models right at your desk.' },
+      { id: 'azure', href: '/azure', image: asset('/images/business/azure.avif'), alt: 'A translucent ribbon over a blue and orange gradient', badge: '', theme: 'light', title: 'Build what’s next on Azure', cta: 'Start free', detail: 'Cloud, data and AI services that scale with your business, with pay-as-you-go pricing.' },
+      { id: 'microsoft-ai', href: '/ai', image: asset('/images/business/microsoft-ai.avif'), alt: 'Flowing ribbons in pink and orange', badge: '', theme: 'light', title: 'Put Microsoft AI to work', cta: 'Learn more', detail: 'Models, tools and guidance for bringing AI into your products and processes responsibly.' },
+      { id: 'microsoft-teams', href: '/microsoft-teams', image: asset('/images/business/microsoft-teams.avif'), alt: 'Four coworkers on a Microsoft Teams video call', badge: '', theme: 'light', title: 'Bring your team together in Teams', cta: 'See plans', detail: 'Chat, meetings, calls and files in one place, for teams of any size.' },
+      { id: 'windows-11-pro', href: '/windows/business', image: asset('/images/business/windows-11-pro.avif'), alt: 'Two laptops in mid-air showing the Windows 11 wallpaper', badge: '', title: 'Windows 11 Pro', cta: 'Learn more', detail: 'Built-in security and simple management for the PCs your business runs on.' },
     ],
   },
 };

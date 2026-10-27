@@ -70,20 +70,20 @@ export const plans = [
   // ── Business (up to 300 users) ──
   {
     id: 'business-basic', audience: 'business', name: 'Microsoft 365 Business Basic',
-    price: { perUser: 7 }, cta: store('business-basic'), trial: true,
+    price: { perUser: 7, noTeams: 5.4 }, cta: store('business-basic'), trial: true,
     summary: 'Email, storage and Teams, with web and mobile apps.',
     features: ['Up to 300 users', 'Web and mobile Word, Excel, PowerPoint and Outlook', 'Custom business email (you@yourbusiness.com)', '1 TB of cloud storage per user', 'Chat, call and meet in Teams', 'Bookings, Planner, Forms and 10+ more apps', 'Secure AI chat'],
   },
   {
     id: 'business-standard', audience: 'business', name: 'Business Standard with Copilot',
-    price: { perUser: 23.5 }, cta: store('business-standard'), trial: true,
+    price: { perUser: 23.5, noTeams: 20.3 }, cta: store('business-standard'), trial: true,
     summary: 'Desktop apps with Copilot built in.',
     lead: 'Everything in Basic, plus:',
     features: ['Desktop Word, Excel, PowerPoint and Outlook with Copilot', 'AI chat grounded in your work data, with a choice of AI models', 'Ready-made agents for research and data analysis', 'Cowork, Autopilot and AI in SharePoint', 'Loop and Clipchamp'],
   },
   {
     id: 'business-premium', audience: 'business', name: 'Business Premium with Copilot', tag: 'Most protection',
-    price: { perUser: 32 }, cta: store('business-premium'), trial: true,
+    price: { perUser: 32, noTeams: 28.8 }, cta: store('business-premium'), trial: true,
     summary: 'Standard, plus advanced security and device management.',
     lead: 'Everything in Standard, plus:',
     features: ['Policy-based identity and access controls', 'Advanced device management', 'Protection against phishing and cyberattacks', 'Information protection'],
@@ -91,7 +91,7 @@ export const plans = [
   {
     id: 'copilot-business', audience: 'business', name: 'Microsoft 365 Copilot Business', addOn: true,
     price: { perUser: 18, was: 21 }, cta: store('copilot-business'),
-    summary: 'Add Copilot to an existing business plan.',
+    summary: 'Add Copilot to any business plan. Sale price is for the first year, through Dec 31, 2026; $25.20 paid monthly.',
     features: ['Copilot in Word, Excel, PowerPoint, Outlook and Teams', 'Grounded in your organization’s data'],
   },
 
@@ -119,7 +119,7 @@ export const plans = [
   {
     id: 'copilot-enterprise', audience: 'enterprise', name: 'Microsoft 365 Copilot', addOn: true,
     price: { perUser: 30 }, cta: sales,
-    summary: 'Add Copilot to E3, E5, Office 365 or frontline plans.',
+    summary: 'Add Copilot to E3, E5, Office 365 or frontline plans. $31.50 paid monthly with a yearly commitment.',
     features: ['Copilot in the apps, grounded in work data', 'Agents, and the ability to build your own'],
   },
 
@@ -142,10 +142,12 @@ export const plans = [
   { id: 'a3', audience: 'education', name: 'Microsoft 365 A3', contact: true, cta: { label: 'Contact a partner', href: sales.href }, summary: 'A1, plus desktop apps, device management and security.', features: ['Desktop Office apps', 'Device management at scale', 'Identity and security tools'] },
   { id: 'a5', audience: 'education', name: 'Microsoft 365 A5', contact: true, cta: { label: 'Contact a partner', href: sales.href }, summary: 'A3, plus advanced security, analytics and governance.', features: ['Advanced threat protection', 'Power BI analytics', 'Compliance and governance'] },
 
-  // ── US government (sold through sales) ──
-  { id: 'gcc', audience: 'government', name: 'Microsoft 365 GCC', contact: true, cta: sales, summary: 'For US government agencies.', features: ['Microsoft 365 Government G3, G5 and G7', 'Office 365 Government G3 and G5'] },
-  { id: 'gcc-high', audience: 'government', name: 'Microsoft 365 GCC High', contact: true, cta: sales, summary: 'For US-only regulated agencies and authorized contractors.', features: ['Aligned to FedRAMP High, ITAR, DFARS and DISA SRG L4'] },
-  { id: 'dod', audience: 'government', name: 'Microsoft 365 DoD', contact: true, cta: sales, summary: 'For the US Department of Defense.', features: ['Built for defense security requirements'] },
+  // ── US government (sold through sales; runs in GCC, GCC High or DoD — see the Government page) ──
+  { id: 'g7', audience: 'government', name: 'Microsoft 365 Government G7', tag: 'For GCC', contact: true, cta: sales, summary: 'AI, agents and advanced security in one suite for government.', features: ['Supports organizations of any size', 'Agent 365 to govern AI agents', 'Unified identity, security and network access', 'Microsoft 365 Copilot'] },
+  { id: 'g5', audience: 'government', name: 'Microsoft 365 Government G5', contact: true, cta: sales, summary: 'Apps with advanced security, compliance and analytics.', features: ['Desktop, web and mobile apps', 'Advanced security and compliance', 'Power BI Pro analytics'] },
+  { id: 'g3', audience: 'government', name: 'Microsoft 365 Government G3', contact: true, cta: sales, summary: 'Apps with enhanced security and compliance.', features: ['Desktop, web and mobile apps', 'Enhanced security and compliance', 'Device and app management with Intune'] },
+  { id: 'o365-g5', audience: 'government', name: 'Office 365 Government G5', contact: true, cta: { label: 'Request a free trial', href: '/microsoft-365/government#get-started' }, summary: 'Office apps with core security, compliance and analytics.', features: ['Office apps, email and Teams', 'Core security and compliance', 'Analytics'] },
+  { id: 'o365-g3', audience: 'government', name: 'Office 365 Government G3', contact: true, cta: { label: 'Request a free trial', href: '/microsoft-365/government#get-started' }, summary: 'Productivity apps, file sharing, webinars and basic security.', features: ['Office apps, email and Teams', 'File sharing and webinars', 'Basic security'] },
 ];
 
 export const plansFor = (audience) => plans.filter((p) => p.audience === audience);

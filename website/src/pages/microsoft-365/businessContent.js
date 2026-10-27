@@ -1,6 +1,10 @@
 // Copy for /microsoft-365/business. Replaces "For business", "Pricing for business", the Business
 // Standard and Business Premium pages, and "For small business" (which pointed to the same page).
 // Plans come from plans.js.
+import { asset } from '@/app/base.js';
+
+
+const IMG = (file) => asset(`/images/m365/business/${file}.avif`);
 
 export const hero = {
   eyebrow: 'Microsoft 365 for business',
@@ -22,19 +26,19 @@ export const who = {
   eyebrow: 'Who it’s for',
   title: 'Built for businesses of every kind',
   items: [
-    { title: 'Real estate agents', body: 'Manage listings, keep in touch with clients and sign contracts from one place.' },
-    { title: 'Fitness instructors', body: 'Take bookings, share schedules and stay in touch with members.' },
-    { title: 'Veterinarians', body: 'Keep appointments, records and team communication organized.' },
-    { title: 'Café owners', body: 'Plan shifts, track inventory and answer customers quickly.' },
-    { title: 'Freelance designers', body: 'Share work, collect feedback and send invoices from a professional address.' },
-    { title: 'Food truck owners', body: 'Post your location, take orders and keep the books on the go.' },
+    { title: 'Real estate agents', image: IMG('real-estate'), body: 'Manage listings, keep in touch with clients and sign contracts from one place.' },
+    { title: 'Fitness instructors', image: IMG('fitness'), body: 'Take bookings, share schedules and stay in touch with members.' },
+    { title: 'Veterinarians', image: IMG('vet'), body: 'Keep appointments, records and team communication organized.' },
+    { title: 'Café owners', image: IMG('cafe'), body: 'Plan shifts, track inventory and answer customers quickly.' },
+    { title: 'Freelance designers', image: IMG('designer'), body: 'Share work, collect feedback and send invoices from a professional address.' },
+    { title: 'Food truck owners', image: IMG('food-truck'), body: 'Post your location, take orders and keep the books on the go.' },
   ],
 };
 
 export const plansSection = {
   eyebrow: 'Plans',
   title: 'Pick the plan that fits your team',
-  note: 'Prices are per user per month, paid yearly. Monthly billing costs 20% more.',
+  note: 'Prices are per user per month, paid yearly. Monthly billing costs 20% more. Each plan is also sold without Teams, at the price shown under it.',
 };
 
 export const features = {
@@ -54,10 +58,21 @@ export const getStarted = {
   eyebrow: 'Getting started',
   title: 'Help when you need it',
   items: [
-    { title: 'Talk to sales', body: 'Questions about plans, pricing or which fits your business.', href: '/microsoft-365/resources#contact-sales', cta: 'Contact sales' },
-    { title: 'Set up and manage', body: 'Add users, domains and devices in the Microsoft 365 admin center.', href: 'https://admin.microsoft.com', cta: 'Open admin center' },
-    { title: 'Train your team', body: 'Guided training on setup, security and getting more from Copilot.', href: '/microsoft-365/resources#learn', cta: 'Start learning' },
-    { title: 'Find a partner', body: 'Experts who can set up and roll out Microsoft 365 for you.', href: '/microsoft-365/resources#partners', cta: 'Find a partner' },
+    { title: 'Try it free for a month', body: 'Web, desktop and mobile apps for your whole team.', image: IMG('trial'), href: '/store/microsoft-365/business-standard/trial', cta: 'Start free trial' },
+    { title: 'Talk to sales', image: IMG('sales'), body: 'Questions about plans, pricing or which fits your business.', href: '/microsoft-365/resources#contact-sales', cta: 'Contact sales' },
+    { title: 'Set up and manage', image: IMG('admin'), body: 'Add users, domains and devices in the Microsoft 365 admin center.', href: 'https://admin.microsoft.com', cta: 'Open admin center' },
+    { title: 'Train your team', image: IMG('training'), body: 'Guided training on setup, security and getting more from Copilot.', href: '/microsoft-365/resources#learn', cta: 'Start learning' },
+    { title: 'Find a partner', image: IMG('partner'), body: 'Experts who can set up and roll out Microsoft 365 for you.', href: '/microsoft-365/resources#partners', cta: 'Find a partner' },
+  ],
+};
+
+export const articles = {
+  eyebrow: 'Articles and insights',
+  title: 'Grow with AI',
+  items: [
+    { title: 'Make your marketing shine with AI', body: 'E-book: three steps to better content, with practical prompts.', image: IMG('marketing-ebook'), href: '/microsoft-365/business/ai-marketing-ebook', cta: 'Read the e-book' },
+    { title: 'Streamline campaigns with AI', body: 'Automate tasks, personalize experiences and improve return on spend.', image: IMG('ai-marketing'), href: '/microsoft-365/business/ai-marketing-tools', cta: 'Read the article' },
+    { title: 'AI for small business: a beginner’s guide', body: 'Use AI to build a stronger brand identity.', image: IMG('ai-guide'), href: '/microsoft-365/business/ai-beginners-guide', cta: 'Read the article' },
   ],
 };
 

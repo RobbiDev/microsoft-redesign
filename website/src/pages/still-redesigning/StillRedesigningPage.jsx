@@ -1,26 +1,23 @@
-import Icon from '@/components/ui/Icon/Icon.jsx';
+import Link from '@/components/ui/Link/Link.jsx';
+import { isInsideApp } from '@/app/base.js';
 import styles from './StillRedesigningPage.module.css';
 
 // Shown for every page that hasn't been redesigned yet (the site's 404).
-export default function StillRedesigningPage({ path }) {
+export default function StillRedesigningPage() {
+  // A path outside this app (e.g. /copilot on microsoft.robbyj.dev) is another redesign that isn't built yet.
+  const otherRedesign = !isInsideApp(window.location.pathname);
   return (
     <section className={styles.page}>
       <div className={styles.logo} aria-hidden="true">
         <i /><i /><i /><i />
       </div>
-      <p className={styles.eyebrow}>Work in progress</p>
       <h1 className={styles.title}>Still being redesigned</h1>
-      <p className={styles.body}>
-        This page hasn’t been reimagined yet. The redesign is happening one page at a time, so check back soon.
-      </p>
-      <code className={styles.path}>{path}</code>
-      <div className={styles.actions}>
-        <a href="/" className={styles.primary}>Back to home</a>
-        <a href="/store" className={styles.secondary}>Visit the Microsoft Store <Icon name="arrowSmall" /></a>
-      </div>
-      <a className={styles.original} href="https://www.microsoft.com/" target="_blank" rel="noreferrer">
-        See the current microsoft.com
-      </a>
+      <p className={styles.body}>This page is next on the list. Check back soon.</p>
+      {otherRedesign ? (
+        <Link href="/" outsideApp className={styles.button}>See all redesigns</Link>
+      ) : (
+        <Link href="/" className={styles.button}>Back to home</Link>
+      )}
     </section>
   );
 }

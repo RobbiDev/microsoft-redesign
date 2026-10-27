@@ -2,6 +2,7 @@ import Icon from '@/components/ui/Icon/Icon.jsx';
 import { usePathname } from '@/app/router.js';
 import { audiences } from '@/pages/microsoft-365/m365Content.js';
 import styles from './M365Hero.module.css';
+import Link from '@/components/ui/Link/Link.jsx';
 
 // Section hero for Microsoft 365 pages, with the audience switcher (individuals / business / …).
 export default function M365Hero({ eyebrow, title, body, primary, secondary, image, compact = false, children }) {
@@ -15,15 +16,15 @@ export default function M365Hero({ eyebrow, title, body, primary, secondary, ima
         {body && <p className={styles.body}>{body}</p>}
         {(primary || secondary) && (
           <div className={styles.actions}>
-            {primary && <a href={primary.href} className={styles.primary}>{primary.label}</a>}
-            {secondary && <a href={secondary.href} className={styles.secondary}>{secondary.label} <Icon name="arrowSmall" /></a>}
+            {primary && <Link href={primary.href} className={styles.primary}>{primary.label}</Link>}
+            {secondary && <Link href={secondary.href} className={styles.secondary}>{secondary.label} <Icon name="arrowSmall" /></Link>}
           </div>
         )}
         {children}
         {!compact && (
           <nav className={styles.audiences} aria-label="Microsoft 365 for">
             {audiences.map((a) => (
-              <a key={a.href} href={a.href} aria-current={pathname === a.href ? 'page' : undefined}>{a.label}</a>
+              <Link key={a.href} href={a.href} aria-current={pathname === a.href ? 'page' : undefined}>{a.label}</Link>
             ))}
           </nav>
         )}

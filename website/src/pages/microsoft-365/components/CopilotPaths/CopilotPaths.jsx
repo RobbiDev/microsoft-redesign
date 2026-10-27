@@ -1,6 +1,7 @@
 import Icon from '@/components/ui/Icon/Icon.jsx';
 import { planById } from '@/pages/microsoft-365/plans.js';
 import styles from './CopilotPaths.module.css';
+import Link from '@/components/ui/Link/Link.jsx';
 
 const priceLabel = (p) => {
   if (p.price.perUser !== undefined) return `$${p.price.perUser.toFixed(2)} user/month`;
@@ -23,12 +24,12 @@ export default function CopilotPaths({ id, eyebrow, title, items }) {
               <ul>
                 {path.planIds.map(planById).map((p) => (
                   <li key={p.id}>
-                    <a href={`/microsoft-365/plans?for=${p.audience}#plan-${p.id}`}>{p.name}{p.addOn ? ' (add-on)' : ''}</a>
+                    <Link href={`/microsoft-365/plans?for=${p.audience}#plan-${p.id}`}>{p.name}{p.addOn ? ' (add-on)' : ''}</Link>
                     <span>{priceLabel(p)}</span>
                   </li>
                 ))}
               </ul>
-              <a href={path.more.href} className={styles.more}>{path.more.label} <Icon name="arrowSmall" /></a>
+              <Link href={path.more.href} className={styles.more}>{path.more.label} <Icon name="arrowSmall" /></Link>
             </div>
           ))}
         </div>

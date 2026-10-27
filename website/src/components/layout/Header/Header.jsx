@@ -8,6 +8,7 @@ import useMediaQuery from '@/hooks/useMediaQuery.js';
 import { navigate, usePathname } from '@/app/router.js';
 import { accounts, hubHref, hubKeyForPath, hubs, initials, menuLinks, promo } from '@/data/site.js';
 import styles from './Header.module.css';
+import Link from '@/components/ui/Link/Link.jsx';
 
 const FADE_MS = 160;
 const PANEL_WIDTH = 296;
@@ -96,7 +97,7 @@ export default function Header() {
                 <div key={col.title}>
                   <h3>{col.title}</h3>
                   <ul>
-                    {col.links.map((l) => <li key={l}><a href={hubHref(hub, l)}>{l}</a></li>)}
+                    {col.links.map((l) => <li key={l}><Link href={hubHref(hub, l)}>{l}</Link></li>)}
                   </ul>
                 </div>
               ))}
@@ -105,7 +106,7 @@ export default function Header() {
         </div>
       ) : openMenu && (
         <div className={styles.dropdown} style={{ left: panelLeft }}>
-          {menuLinks(openMenu).map((l) => <a key={l} href={hubHref(hub, l)}>{l}</a>)}
+          {menuLinks(openMenu).map((l) => <Link key={l} href={hubHref(hub, l)}>{l}</Link>)}
         </div>
       )}
 
@@ -113,9 +114,9 @@ export default function Header() {
 
       {panel === 'switcher' && (
         <div className={styles.dropdown} style={{ left: panelLeft }}>
-          {hub && <a className={styles.home} href="/">Microsoft home</a>}
+          {hub && <Link className={styles.home} href="/">Microsoft home</Link>}
           {Object.keys(hubs).map((k) => (
-            <a key={k} href={hubs[k].base} aria-current={k === hubKey ? 'page' : undefined}>{k}</a>
+            <Link key={k} href={hubs[k].base} aria-current={k === hubKey ? 'page' : undefined}>{k}</Link>
           ))}
         </div>
       )}
@@ -127,7 +128,7 @@ export default function Header() {
       {showPromo && (
         <div className={styles.promo}>
           <span>{promo.text}</span>
-          <a href={promo.href}>{promo.cta}</a>
+          <Link href={promo.href}>{promo.cta}</Link>
           <button className={styles.promoClose} onClick={() => setShowPromo(false)} aria-label="Close">
             <Icon name="close" />
           </button>

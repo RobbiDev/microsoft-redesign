@@ -10,6 +10,7 @@ import EducationPage from '@/pages/microsoft-365/EducationPage.jsx';
 import CopilotPage from '@/pages/microsoft-365/CopilotPage.jsx';
 import AppsPage from '@/pages/microsoft-365/AppsPage.jsx';
 import ResourcesPage from '@/pages/microsoft-365/ResourcesPage.jsx';
+import GovernmentPage from '@/pages/microsoft-365/GovernmentPage.jsx';
 import { m365Redirects } from '@/pages/microsoft-365/redirects.js';
 import StillRedesigningPage from '@/pages/still-redesigning/StillRedesigningPage.jsx';
 import { handleLinkClick, navigate, scrollToHash, usePathname } from './router.js';
@@ -26,6 +27,7 @@ const routes = {
   '/microsoft-365/copilot': CopilotPage,
   '/microsoft-365/apps': AppsPage,
   '/microsoft-365/resources': ResourcesPage,
+  '/microsoft-365/government': GovernmentPage,
 };
 
 // Old paths that now live inside a condensed page.

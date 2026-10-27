@@ -1,6 +1,7 @@
 import ImageSlot from '@/components/ui/ImageSlot/ImageSlot.jsx';
 import { stories } from '@/pages/home/homeContent.js';
 import styles from './Stories.module.css';
+import Link from '@/components/ui/Link/Link.jsx';
 
 export default function Stories() {
   return (
@@ -14,7 +15,7 @@ export default function Stories() {
               <div className={styles.text}>
                 <h3>{s.title}</h3>
                 <p>{s.body}</p>
-                <div className={styles.cta}><a href={s.href} className="btn btn-primary">{s.cta}</a></div>
+                <div className={styles.cta}><Link href={s.href} className="btn btn-primary">{s.cta}</Link></div>
               </div>
             </article>
           ))}

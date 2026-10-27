@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import Icon from '@/components/ui/Icon/Icon.jsx';
 import { hero } from '@/pages/home/homeContent.js';
 import styles from './Hero.module.css';
+import Link from '@/components/ui/Link/Link.jsx';
 
 export default function Hero() {
   const videoRef = useRef(null);
@@ -53,10 +54,10 @@ export default function Hero() {
           <span className={styles.rest}>{hero.rest}</span>
         </h1>
         <div className={styles.actions}>
-          <a href={hero.primary.href} className={styles.primary}>{hero.primary.label}</a>
-          <a href={hero.secondary.href} className={styles.secondary}>
+          <Link href={hero.primary.href} className={styles.primary}>{hero.primary.label}</Link>
+          <Link href={hero.secondary.href} className={styles.secondary}>
             {hero.secondary.label} <Icon name="arrowSmall" />
-          </a>
+          </Link>
         </div>
       </div>
 

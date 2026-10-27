@@ -79,7 +79,7 @@ export default function DesktopBar({ hub, fading, panel, toggle, me }) {
                     item.menu ? (
                       <div key={item.label} className={styles.moreGroup}>
                         <span>{item.label}</span>
-                        {menuLinks(item.menu).map((l) => <a key={l} href={hubHref(hub, l)}>{l}</a>)}
+                        {menuLinks(item.menu).map((l) => <Link key={l} href={hubHref(hub, l)}>{l}</Link>)}
                       </div>
                     ) : (
                       <Link key={item.label} href={hrefOf(item)}>{item.label}</Link>
@@ -98,7 +98,7 @@ export default function DesktopBar({ hub, fading, panel, toggle, me }) {
               <button className={styles.iconBtn} aria-label="Search" onClick={() => toggle('search')}>
                 <Icon name="search" size={18} strokeWidth={1.5} />
               </button>
-              <a className={styles.iconBtn} href="/store/cart" aria-label="Cart"><CartIcon /></a>
+              <Link className={styles.iconBtn} href="/store/cart" aria-label="Cart"><CartIcon /></Link>
             </div>
             <Avatar me={me} open={panel === 'account'} onClick={() => toggle('account')} />
           </div>

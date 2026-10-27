@@ -9,6 +9,7 @@
 .card { display: flex; flex-direction: column; padding: 24px; overflow: hidden; border: 1px solid var(--line); border-radius: 18px; background: #fff; color: var(--ink); scroll-margin-top: calc(var(--header-h, 64px) + 80px); }
 .warm .card { border-color: transparent; }
 .image { display: block; width: calc(100% + 48px); margin: -24px -24px 20px; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 18px 18px 0 0; background: #f4f1ec; }
+.icon { margin-bottom: 16px; }
 .card h3 { margin: 0; font-size: 18px; font-weight: 600; }
 .card p { margin: 8px 0 0; flex: 1; font-size: 15px; line-height: 1.55; color: var(--ink-3); }
 .link:hover { text-decoration: none; color: var(--ink); box-shadow: 0 8px 22px rgba(0, 0, 0, 0.07); }

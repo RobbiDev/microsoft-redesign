@@ -1,5 +1,6 @@
 import { categories } from '@/pages/store/storeContent.js';
 import styles from './CategoryTiles.module.css';
+import Link from '@/components/ui/Link/Link.jsx';
 
 export default function CategoryTiles() {
   return (
@@ -8,10 +9,10 @@ export default function CategoryTiles() {
         <h2 className={styles.heading}>Shop by category</h2>
         <div className={styles.grid}>
           {categories.map((c) => (
-            <a key={c.label} href={c.href} className={`${styles.tile} ${c.theme === 'light' ? styles.light : ''}`}>
+            <Link key={c.label} href={c.href} className={`${styles.tile} ${c.theme === 'light' ? styles.light : ''}`}>
               <img src={c.image} alt="" loading="lazy" decoding="async" />
               <span>{c.label}</span>
-            </a>
+            </Link>
           ))}
         </div>
       </div>

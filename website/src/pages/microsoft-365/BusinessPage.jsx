@@ -3,8 +3,7 @@ import SectionNav from './components/SectionNav/SectionNav.jsx';
 import InfoGrid from './components/InfoGrid/InfoGrid.jsx';
 import PlanSection from './components/PlanSection/PlanSection.jsx';
 import Faq from './components/Faq/Faq.jsx';
-import { teamsNote } from './plans.js';
-import { faq, features, getStarted, hero, plansSection, sectionNav, who } from './businessContent.js';
+import { articles, faq, features, getStarted, hero, plansSection, sectionNav, who } from './businessContent.js';
 
 export default function BusinessPage() {
   return (
@@ -12,8 +11,9 @@ export default function BusinessPage() {
       <M365Hero {...hero} />
       <SectionNav items={sectionNav} cta={{ label: 'Compare plans', href: '#plans' }} />
       <InfoGrid id="who" {...who} tone="warm" />
-      <PlanSection {...plansSection} audience="business" note={`${plansSection.note} ${teamsNote}`} />
+      <PlanSection {...plansSection} audience="business" note={plansSection.note} />
       <InfoGrid id="features" {...features} />
+      <InfoGrid {...articles} />
       <InfoGrid id="get-started" {...getStarted} tone="warm" />
       <Faq id="faq" items={faq} />
     </>

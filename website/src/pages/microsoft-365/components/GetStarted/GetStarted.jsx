@@ -1,5 +1,6 @@
 import Icon from '@/components/ui/Icon/Icon.jsx';
 import styles from './GetStarted.module.css';
+import Link from '@/components/ui/Link/Link.jsx';
 
 export default function GetStarted({ title, items }) {
   return (
@@ -8,12 +9,12 @@ export default function GetStarted({ title, items }) {
         <h2 className={styles.title}>{title}</h2>
         <div className={styles.grid}>
           {items.map((item) => (
-            <a key={item.title} href={item.href} className={styles.card}>
+            <Link key={item.title} href={item.href} className={styles.card}>
               <img src={item.image} alt={item.alt} loading="lazy" decoding="async" />
               <h3>{item.title}</h3>
               <p>{item.body}</p>
               <span className={styles.cta}>{item.cta} <Icon name="arrowSmall" /></span>
-            </a>
+            </Link>
           ))}
         </div>
       </div>

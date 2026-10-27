@@ -1,0 +1,10 @@
+{
+  "name": "microsoft-redesign",
+  "private": true,
+  "description": "microsoft.robbyj.dev: the home page plus every redesign, built into one static site.",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/serve.mjs"
+  }
+}

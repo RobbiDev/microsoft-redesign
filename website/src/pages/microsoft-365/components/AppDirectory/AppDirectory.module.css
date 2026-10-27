@@ -18,7 +18,15 @@
 .groupTitle { margin: 0 0 8px; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
 .app { display: flex; gap: 20px; padding: 28px 0; border-bottom: 1px solid var(--line); scroll-margin-top: calc(var(--header-h, 64px) + 80px); }
 .app > img, .app > .letter { flex: none; }
-.text { max-width: 760px; }
+.text { flex: 1; min-width: 0; }
+.text > p, .text > ul { max-width: 760px; }
+.features { margin-top: 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); gap: 14px; }
+.features figure { margin: 0; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: #fff; }
+.features img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; background: #f4f1ec; }
+.features figcaption { padding: 12px 14px 14px; font-size: 14px; line-height: 1.45; color: var(--ink-3); }
+.features strong { display: block; margin-bottom: 2px; font-size: 15px; color: var(--ink); }
+.platforms { max-width: 1240px; margin: 0 auto; padding: 32px 24px 64px; font-size: 15px; color: var(--ink-3); }
+.platforms strong { color: var(--ink); margin-right: 8px; }
 .text h3 { margin: 0; font-size: 24px; font-weight: 600; }
 .text h3 span { margin-left: 8px; font-size: 16px; font-weight: 500; color: var(--ink-3); }
 .text > p { margin: 8px 0 0; font-size: 16px; line-height: 1.55; color: var(--ink-2); }

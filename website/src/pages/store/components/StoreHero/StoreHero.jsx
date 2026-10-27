@@ -1,6 +1,7 @@
 import Icon from '@/components/ui/Icon/Icon.jsx';
 import { storeHero } from '@/pages/store/storeContent.js';
 import styles from './StoreHero.module.css';
+import Link from '@/components/ui/Link/Link.jsx';
 
 export default function StoreHero() {
   return (
@@ -10,10 +11,10 @@ export default function StoreHero() {
           <h1 className={styles.title}>{storeHero.title}</h1>
           <p className={styles.body}>{storeHero.body}</p>
           <div className={styles.actions}>
-            <a href={storeHero.primary.href} className={styles.primary}>{storeHero.primary.label}</a>
-            <a href={storeHero.secondary.href} className={styles.secondary}>
+            <Link href={storeHero.primary.href} className={styles.primary}>{storeHero.primary.label}</Link>
+            <Link href={storeHero.secondary.href} className={styles.secondary}>
               {storeHero.secondary.label} <Icon name="arrowSmall" />
-            </a>
+            </Link>
           </div>
         </div>
         <div className={styles.media}>

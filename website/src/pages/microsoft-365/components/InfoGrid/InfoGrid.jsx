@@ -2,7 +2,7 @@ import Icon from '@/components/ui/Icon/Icon.jsx';
 import Link from '@/components/ui/Link/Link.jsx';
 import styles from './InfoGrid.module.css';
 
-// A titled grid of short cards. Items: { title, body, image?, alt?, href?, cta?, id? }.
+// A titled grid of short cards. Items: { title, body, image?, icon?, alt?, href?, cta?, id? }.
 // Cards with an `href` are links; an item `id` makes it linkable (#id).
 export default function InfoGrid({ id, eyebrow, title, body, items, footnote, tone = 'white' }) {
   return (
@@ -16,6 +16,7 @@ export default function InfoGrid({ id, eyebrow, title, body, items, footnote, to
             const content = (
               <>
                 {item.image && <img className={styles.image} src={item.image} alt={item.alt ?? ''} loading="lazy" decoding="async" />}
+                {item.icon && <img className={styles.icon} src={item.icon} alt="" width="40" height="40" />}
                 <h3>{item.title}</h3>
                 <p>{item.body}</p>
                 {item.href && <span className={styles.cta}>{item.cta ?? 'Learn more'} <Icon name="arrowSmall" /></span>}

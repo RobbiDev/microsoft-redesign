@@ -1,4 +1,5 @@
 import { useSyncExternalStore } from 'react';
+import { isInsideApp, stripBase, withBase } from './base.js';
 
 // A tiny History API router: no dependency, just pushState + a subscription React can read.
 
@@ -13,11 +14,12 @@ function subscribe(callback) {
   };
 }
 
-export const usePathname = () => useSyncExternalStore(subscribe, () => window.location.pathname);
+// The path inside the app, without the base ('/main/store' → '/store').
+export const usePathname = () => useSyncExternalStore(subscribe, () => stripBase(window.location.pathname));
 
 // `replace` swaps the current history entry instead of adding one (used for redirects).
 export function navigate(to, { replace = false } = {}) {
-  const url = new URL(to, window.location.href);
+  const url = new URL(withBase(to), window.location.href);
   if (url.href === window.location.href) return;
   window.history[replace ? 'replaceState' : 'pushState'](null, '', url);
   window.scrollTo({ top: 0, behavior: 'instant' });
@@ -45,7 +47,7 @@ export function handleLinkClick(e) {
   if (!link || (link.target && link.target !== '_self') || link.hasAttribute('download')) return;
   if (link.getAttribute('href').startsWith('#')) return;
   const url = new URL(link.href);
-  if (url.origin !== window.location.origin) return;
+  if (url.origin !== window.location.origin || !isInsideApp(url.pathname)) return; // other sites, or other redesigns on this domain
   e.preventDefault();
   navigate(url.pathname + url.search + url.hash);
 }

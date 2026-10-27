@@ -1,10 +1,13 @@
+import { withBase } from '@/app/base.js';
 import { isExternal } from '@/data/site.js';
 
-// An <a> that opens other sites in a new tab. Internal links are handled by the router.
-export default function Link({ href, children, ...rest }) {
+// Every link in the app goes through here. Site paths get the app's base ('/store' → '/main/store'),
+// other sites open in a new tab, and `outsideApp` links go to the domain as-is (e.g. '/' = all redesigns).
+export default function Link({ href = '', outsideApp = false, children, ...rest }) {
   const external = isExternal(href);
+  const to = external || outsideApp ? href : withBase(href);
   return (
-    <a href={href} target={external ? '_blank' : undefined} rel={external ? 'noreferrer' : undefined} {...rest}>
+    <a href={to} target={external ? '_blank' : undefined} rel={external ? 'noreferrer' : undefined} {...rest}>
       {children}
     </a>
   );

@@ -5,6 +5,7 @@ import Faq from './components/Faq/Faq.jsx';
 import { audiences, oneTimePurchase, personalComparison, teamsNote } from './plans.js';
 import { faq } from './m365Content.js';
 import styles from './SectionPage.module.css';
+import Link from '@/components/ui/Link/Link.jsx';
 
 // /microsoft-365/plans — every plan for every audience, from plans.js. ?for=<audience> picks the tab.
 export default function M365PlansPage() {
@@ -24,7 +25,7 @@ export default function M365PlansPage() {
             <h2>{oneTimePurchase.title}</h2>
             <p>{oneTimePurchase.body}</p>
           </div>
-          <a href={oneTimePurchase.cta.href} className={styles.button}>{oneTimePurchase.cta.label} · ${oneTimePurchase.price}</a>
+          <Link href={oneTimePurchase.cta.href} className={styles.button}>{oneTimePurchase.cta.label} · ${oneTimePurchase.price}</Link>
         </div>
       </section>
       <CompareTable title="Compare personal plans" {...personalComparison} />

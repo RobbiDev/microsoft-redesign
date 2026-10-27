@@ -2,8 +2,10 @@
 // Plans come from plans.js and apps from apps.js, so nothing here repeats a price or an app description.
 // Product names and facts mirror microsoft.com (October 2026); descriptions are our own words.
 // Images live in public/images/m365/.
+import { asset } from '@/app/base.js';
 
-const IMG = '/images/m365';
+
+const IMG = asset('/images/m365');
 const ICON = `${IMG}/icons`;
 export const PLANS_PATH = '/microsoft-365/plans';
 

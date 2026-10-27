@@ -5,8 +5,15 @@ The redesigned Microsoft site. React + Vite, no backend — every page is static
 ```bash
 npm install
 npm run dev      # http://localhost:5173
-npm run build    # static output in dist/
+npm run build    # static output in dist/ (served from /)
 ```
+
+On **microsoft.robbyj.dev** this app lives at **`/main`**. The repo-root build (`npm run build` in the repo root)
+builds it with `--base=/main/` alongside the home page. Two rules keep that working:
+
+- **Links:** always use `<Link href="/store">` (from `@/components/ui/Link/Link.jsx`), never a raw `<a>`. It adds the
+  base (`/main/store`) and opens other sites in a new tab. `outsideApp` skips the base (e.g. `href="/"` = all redesigns).
+- **Files in `public/`:** wrap paths in `asset('/images/…')` (from `@/app/base.js`) so they resolve under `/main`.
 
 ## Project structure
 
@@ -19,7 +26,7 @@ src/
 ├── pages/                    one folder per page
 │   ├── still-redesigning/    shown for every path that isn't built yet (the 404)
 │   ├── store/                Microsoft Store landing page (/store)
-│   ├── microsoft-365/        8 pages that replace ~45 on microsoft.com (Personal, Business, Enterprise,
+│   ├── microsoft-365/        9 pages that replace ~45 on microsoft.com (Personal, Business, Enterprise, Government,
 │   │                         Education, Copilot, Apps, Plans, Resources). plans.js and apps.js are the
 │   │                         single source for every plan and app; redirects.js forwards old paths
 │   └── home/

@@ -16,7 +16,7 @@ export default function AllMicrosoftMenu() {
             </div>
           ))}
         </div>
-        <a href="/sitemap" className={styles.sitemap}>View Sitemap</a>
+        <Link href="/sitemap" className={styles.sitemap}>View Sitemap</Link>
       </div>
     </div>
   );

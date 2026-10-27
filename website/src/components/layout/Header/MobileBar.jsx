@@ -50,11 +50,11 @@ export default function MobileBar({ hub, fading, panel, toggle, close, me }) {
                     {item.label} <Icon name="chevronDown" size={14} strokeWidth={1.4} />
                   </button>
                 ) : (
-                  <a className={styles.sheetItem} href={hubHref(hub, item.label)}>{item.label}</a>
+                  <Link className={styles.sheetItem} href={hubHref(hub, item.label)}>{item.label}</Link>
                 )}
                 {open && (
                   <div className={styles.sheetSub}>
-                    {menuLinks(item.menu).map((l) => <a key={l} href={hubHref(hub, l)}>{l}</a>)}
+                    {menuLinks(item.menu).map((l) => <Link key={l} href={hubHref(hub, l)}>{l}</Link>)}
                   </div>
                 )}
               </div>
@@ -66,16 +66,16 @@ export default function MobileBar({ hub, fading, panel, toggle, close, me }) {
       {panel === 'mNav' && (
         <div className={styles.sheet}>
           {hub && (
-            <a className={`${styles.sheetItem} ${styles.sheetHome}`} href="/">
+            <Link className={`${styles.sheetItem} ${styles.sheetHome}`} href="/">
               <Icon name="back" /> Microsoft home
-            </a>
+            </Link>
           )}
           {globalNav.map((l) => (
             <Link key={l} className={styles.sheetItem} href={hrefFor(l)} aria-current={hub && hrefFor(l) === hub.base ? 'page' : undefined}>
               {l} <Icon name="chevronRight" size={14} strokeWidth={1.4} />
             </Link>
           ))}
-          <a href="/store/cart" className={styles.sheetLink}><CartIcon /> Cart</a>
+          <Link href="/store/cart" className={styles.sheetLink}><CartIcon /> Cart</Link>
 
           <span className={styles.sheetLabel}>All Microsoft</span>
           {allMicrosoft.map((col) => {

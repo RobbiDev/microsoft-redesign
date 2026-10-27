@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import styles from './SectionNav.module.css';
+import Link from '@/components/ui/Link/Link.jsx';
 
 // Sticky in-page navigation that highlights the section currently on screen.
 export default function SectionNav({ items, cta }) {
@@ -25,10 +26,10 @@ export default function SectionNav({ items, cta }) {
       <div className={styles.inner}>
         <nav className={styles.links} aria-label="On this page">
           {items.map((item) => (
-            <a key={item.id} href={`#${item.id}`} aria-current={active === item.id ? 'true' : undefined}>{item.label}</a>
+            <Link key={item.id} href={`#${item.id}`} aria-current={active === item.id ? 'true' : undefined}>{item.label}</Link>
           ))}
         </nav>
-        {cta && <a href={cta.href} className={styles.cta}>{cta.label}</a>}
+        {cta && <Link href={cta.href} className={styles.cta}>{cta.label}</Link>}
       </div>
     </div>
   );

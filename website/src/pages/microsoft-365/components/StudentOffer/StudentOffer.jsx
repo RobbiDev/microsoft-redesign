@@ -1,4 +1,5 @@
 import styles from './StudentOffer.module.css';
+import Link from '@/components/ui/Link/Link.jsx';
 
 export default function StudentOffer({ id, eyebrow, title, body, steps, cta }) {
   return (
@@ -15,7 +16,7 @@ export default function StudentOffer({ id, eyebrow, title, body, steps, cta }) {
             </li>
           ))}
         </ol>
-        <a href={cta.href} className={styles.cta}>{cta.label}</a>
+        <Link href={cta.href} className={styles.cta}>{cta.label}</Link>
       </div>
     </section>
   );

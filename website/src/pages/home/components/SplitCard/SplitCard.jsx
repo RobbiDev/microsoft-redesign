@@ -1,5 +1,6 @@
 import ImageSlot from '@/components/ui/ImageSlot/ImageSlot.jsx';
 import styles from './SplitCard.module.css';
+import Link from '@/components/ui/Link/Link.jsx';
 
 // Text-on-the-left, image-on-the-right card used by the feature banner and featured carousel.
 export default function SplitCard({ title, body, cta, href, placeholder, as: Heading = 'h2', className = '', ...rest }) {
@@ -10,7 +11,7 @@ export default function SplitCard({ title, body, cta, href, placeholder, as: Hea
         <Heading className={styles.title}>{title}</Heading>
         <p className={styles.body}>{body}</p>
         <div className={styles.spacer} />
-        <div className={styles.cta}><a href={href} className="btn btn-primary">{cta}</a></div>
+        <div className={styles.cta}><Link href={href} className="btn btn-primary">{cta}</Link></div>
       </div>
       <div className={styles.media}>
         <ImageSlot placeholder={placeholder} />

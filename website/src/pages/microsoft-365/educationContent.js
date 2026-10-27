@@ -1,5 +1,7 @@
 // Copy for /microsoft-365/education. Replaces "For schools"; student pricing lives on the Personal page.
 // Plans come from plans.js.
+import { asset } from '@/app/base.js';
+
 
 export const hero = {
   eyebrow: 'Microsoft 365 for education',
@@ -7,6 +9,40 @@ export const hero = {
   body: 'Secure, connected apps for students, teachers and IT, with AI built for the classroom.',
   primary: { label: 'See education plans', href: '#plans' },
   secondary: { label: 'Talk to a partner', href: '/microsoft-365/resources#contact-sales' },
+};
+
+const IMG = (file) => asset(`/images/m365/education/${file}.avif`);
+
+export const benefits = {
+  eyebrow: 'Why Microsoft 365 Education',
+  title: 'One secure platform for learning',
+  items: [
+    { title: 'AI-powered learning', body: 'Tools that help students practice and build confidence, governed by the school.', image: IMG('ai-learning') },
+    { title: 'Skills for the future', body: 'Digital and AI skills students will use after graduation.', image: IMG('future-skills') },
+    { title: 'Less overhead', body: 'Consistent, high-quality learning without extra operational work.', image: IMG('efficiency') },
+    { title: 'Simple, secure IT', body: 'Protect every student’s identity, device and data.', image: IMG('secure-it') },
+  ],
+};
+
+export const lti = {
+  eyebrow: 'Microsoft 365 LTI',
+  title: 'Bring Microsoft 365 into your learning management system',
+  items: [
+    { title: 'Free to turn on', body: 'Add Microsoft 365 tools to your LMS at no additional cost.', image: IMG('lti-free') },
+    { title: 'Works with your LMS', body: 'Canvas, Blackboard, Moodle and other platforms.', image: IMG('lti-lms') },
+    { title: 'Security built in', body: 'The same security and compliance as Microsoft 365.', image: IMG('lti-security') },
+    { title: 'Richer courses', body: 'Build course content with Microsoft 365 apps and Copilot.', image: IMG('lti-content') },
+  ],
+};
+
+export const resources = {
+  eyebrow: 'Resources',
+  title: 'Help for educators and IT',
+  items: [
+    { title: 'Help and learning', body: 'Answers and support for Microsoft 365 Education products.', href: 'https://support.microsoft.com/education' },
+    { title: 'Documentation for IT', body: 'Guidance for admins, developers and partners.', href: 'https://learn.microsoft.com/microsoft-365/education/' },
+    { title: 'Microsoft Learn Educator Center', body: 'Learning paths and modules for teachers.', href: 'https://learn.microsoft.com/training/educator-center/' },
+  ],
 };
 
 export const plansSection = {

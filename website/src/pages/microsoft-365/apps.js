@@ -3,7 +3,10 @@
 // separate Word, Excel, PowerPoint, Outlook, Teams, OneDrive, SharePoint and Planner pages.
 // Icons live in public/images/m365/icons/; apps without one show their initial.
 
-const ICON = '/images/m365/icons';
+import { features as aiFeatures } from './m365Content.js';
+import { asset } from '@/app/base.js';
+
+const ICON = asset('/images/m365/icons');
 
 export const appGroups = [
   { id: 'productivity', label: 'Productivity apps' },
@@ -137,3 +140,101 @@ export const relatedProducts = [
   { name: 'Microsoft Viva', body: 'Employee experience tools for engagement, learning and goals.', href: '/microsoft-365/viva' },
   { name: 'Microsoft Edge', body: 'The browser built for Microsoft 365, with Copilot built in.', href: '/edge' },
 ];
+
+// ── Features per app, from each app's page on microsoft.com (images in public/images/m365/apps/<app>/) ──
+const F = (app, file) => asset(`/images/m365/apps/${app}/${file}.avif`);
+
+const features = {
+  word: [
+    { title: 'Create and edit with Copilot', body: 'Go from a blank page to a polished draft, with Copilot writing and revising alongside you.', image: F('word', 'copilot') },
+    { title: 'Start from a template', body: 'Thousands of free, customizable templates for any occasion.', image: F('word', 'templates') },
+    { title: 'Voice-to-text', body: 'Dictate your ideas or transcribe recorded audio straight into a document.', image: F('word', 'dictate') },
+    { title: 'Enhance visually', body: 'Describe a banner or image and Designer creates it for your document.', image: F('word', 'designer') },
+    { title: 'Write like a pro', body: 'Editor checks spelling, grammar and style as you type.', image: F('word', 'editor') },
+    { title: 'Summarize with Copilot', body: 'Get the key points of a long document in seconds.', image: F('word', 'summarize') },
+    { title: 'Share with anyone', body: 'Work together in real time, even with people who don’t have an account, with tracked changes and version history.', image: F('word', 'share') },
+  ],
+  excel: [
+    { title: 'Edit with Copilot', body: 'Ask Copilot to change formulas, tables or formatting, then review each change.', image: F('excel', 'copilot-edit') },
+    { title: 'Formulas with Copilot', body: 'Describe the calculation you need and get the right formula.', image: F('excel', 'formulas') },
+    { title: 'Format with Copilot', body: 'Add columns and highlight what matters with a simple request.', image: F('excel', 'format') },
+    { title: 'Simplify your data', body: 'Go from a prompt to real insights without advanced Excel skills.', image: F('excel', 'simplify') },
+    { title: 'Share and collaborate', body: 'Share workbooks so everyone works from the same numbers.', image: F('excel', 'share') },
+  ],
+  powerpoint: [
+    { title: 'Edit with Copilot', body: 'Describe a change and Copilot makes it in your deck, for you to review.', image: F('powerpoint', 'copilot') },
+    { title: 'Expand your ideas', body: 'Ask Copilot for more detail or a new slide on your topic.', image: F('powerpoint', 'expand') },
+    { title: 'Use a free template', body: 'Start from thousands of customizable designs.', image: F('powerpoint', 'templates') },
+    { title: 'Digitize your handwriting', body: 'Draw or write on a slide and turn it into clean text or shapes.', image: F('powerpoint', 'handwriting') },
+    { title: 'Add a video explainer', body: 'Present with yourself on screen using Cameo.', image: F('powerpoint', 'cameo') },
+    { title: 'Rehearse with Speaker Coach', body: 'Practice and get instant feedback on pace and wording.', image: F('powerpoint', 'speaker-coach') },
+  ],
+  outlook: [
+    { title: 'Everything in one view', body: 'Email, calendar and contacts side by side, so you can plan your day in one place.', image: F('outlook', 'one-place') },
+    { title: 'Connect your accounts', body: 'Bring Outlook.com, Gmail, Yahoo, iCloud and work or school email into one app.', image: F('outlook', 'accounts') },
+    { title: 'Protect your mailbox', body: 'Attachments and links are scanned for threats, and encryption keeps messages private.', image: F('outlook', 'protect') },
+    { title: 'Organize your day', body: 'Schedule events, track packages and flights, and set reminders.', image: F('outlook', 'organize') },
+    { title: 'Draft with Copilot', body: 'Say what you want to send and Copilot drafts it, with the tone and length you choose.', image: F('outlook', 'copilot-draft') },
+    { title: 'Catch up on long threads', body: 'Copilot summarizes long conversations so you can reply faster.', image: F('outlook', 'catch-up') },
+  ],
+  onenote: [
+    { title: 'Copilot in OneNote', body: 'Turn notes into plans, lists and ideas with a prompt.', image: F('onenote', 'copilot') },
+    { title: 'Sketch and annotate', body: 'Digital ink that feels like a pen, for drawing and highlighting.', image: F('onenote', 'ink') },
+    { title: 'Share and collaborate', body: 'Build notebooks together and see everyone’s ideas in one place.', image: F('onenote', 'share') },
+    { title: 'Voice transcription', body: 'Record and transcribe so you can focus on the conversation.', image: F('onenote', 'transcription') },
+    { title: 'OneNote in education', body: 'Searchable notebooks for lesson plans and staff collaboration.', image: F('onenote', 'education') },
+  ],
+  teams: [
+    { title: 'Secure meetings', body: 'Built-in security controls and encryption for every meeting.', image: F('teams', 'protection') },
+    { title: 'Teams Phone', body: 'Call any phone number from Teams, like a landline in the cloud.', image: F('teams', 'calling') },
+    { title: 'Queues for customers', body: 'Handle customer calls as a team, with reporting.', image: F('teams', 'queues') },
+    { title: 'Teams Rooms and Places', body: 'Book desks and rooms, and run meetings that work for people in the room and remote.', image: F('teams', 'rooms') },
+  ],
+  onedrive: [
+    { title: 'Back up your PC', body: 'Files, photos and settings stay safe even if something happens to your computer.', image: F('onedrive', 'desktop') },
+    { title: 'Back up your phone', body: 'Photos and videos upload automatically, with Personal Vault for sensitive files.', image: F('onedrive', 'phone') },
+    { title: 'Back up your Xbox', body: 'Save game captures to share and keep.', image: F('onedrive', 'xbox') },
+    { title: 'Work from anywhere', body: 'Changes sync across devices and files are available offline.', image: F('onedrive', 'anywhere') },
+    { title: 'Scan documents', body: 'Use your phone to scan receipts, documents and mementos into the cloud.', image: F('onedrive', 'scan') },
+    { title: 'Relive memories', body: 'Curated collections of photos and videos from years past.', image: F('onedrive', 'memories') },
+  ],
+  sharepoint: [
+    { title: 'Work IQ', body: 'Grounds Copilot in your organization’s knowledge, powered by SharePoint.', image: F('sharepoint', 'work-iq') },
+    { title: 'Intelligent search', body: 'AI search that understands intent and surfaces the right files and answers.', image: F('sharepoint', 'search') },
+    { title: 'Custom agents', body: 'Build an agent with exactly the knowledge you choose.', image: F('sharepoint', 'agents') },
+    { title: 'AI workflows', body: 'Describe a process in plain language and automate it across SharePoint and Teams.', image: F('sharepoint', 'workflows') },
+    { title: 'Copilot in SharePoint', body: 'Describe a site or page and SharePoint builds the structure for you.', image: F('sharepoint', 'copilot') },
+    { title: 'A branded hub', body: 'One home for company news, culture, apps and resources.', image: F('sharepoint', 'hub') },
+  ],
+  planner: [
+    { title: 'All your work in one place', body: 'Tasks, to-dos, plans and projects from across Microsoft 365.', image: F('planner', 'one-place') },
+    { title: 'Focus on today', body: 'My Day, My Tasks and My Plans keep what’s due front and center.', image: F('planner', 'my-day') },
+    { title: 'Plan your way', body: 'Lists, boards, timelines and charts, starting from templates.', image: F('planner', 'views') },
+    { title: 'Plan together', body: 'Build and manage plans with your team.', image: F('planner', 'together') },
+    { title: 'Big projects too', body: 'Scheduling, resourcing, dashboards and goals that scale with the work.', image: F('planner', 'projects') },
+    { title: 'Copilot in Planner', body: 'Generate buckets, tasks and goals, and get updates on risks.', image: F('planner', 'copilot') },
+  ],
+  defender: [
+    { title: 'Stay ahead of threats', body: 'One app that watches over your devices and accounts.', image: F('defender', 'threats') },
+    { title: 'Protect work and personal devices', body: 'Real-time monitoring for phones and computers, with alerts and tips.', image: F('defender', 'devices') },
+  ],
+};
+
+// Extra facts from the app pages.
+const extra = {
+  outlook: { points: ['Free with Windows, and free on Mac, iPhone and Android for personal use', 'Works with Outlook.com, Gmail, Yahoo, iCloud and work accounts', 'Ad-free from Basic up; custom business email on business plans'] },
+  teams: {
+    points: ['Teams (free): chat, communities and calls up to 60 minutes', 'Family: Teams for up to six people', 'Business: Teams Essentials, or Microsoft 365 Business plans', 'Enterprise: Teams Enterprise ($8.55 user/month), Teams Premium, Teams Phone and Teams Rooms'],
+  },
+  planner: { useCases: ['Marketing', 'Sales', 'Software development', 'IT', 'Human resources', 'Project management', 'Operations'] },
+};
+
+export const platforms = ['Windows', 'Mac', 'iPhone and iPad', 'Android', 'Web'];
+
+// Copilot's features are the AI features already listed on the Personal page.
+features.copilot = aiFeatures.items.slice(0, 6).map(({ title, body, image }) => ({ title, body, image }));
+
+apps.forEach((app) => {
+  app.features = features[app.id] ?? [];
+  Object.assign(app, extra[app.id]);
+});

@@ -1,24 +1,22 @@
 .page {
   min-height: calc(100svh - var(--header-h, 64px));
-  padding: 96px 24px 120px;
+  padding: 80px 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  background:
-    radial-gradient(40% 40% at 50% 30%, rgba(0, 164, 239, 0.08), transparent 70%),
-    var(--surface-3);
+  background: #fff;
 }
 
 /* The logo, with its last square still "under construction". */
-.logo { display: grid; grid-template-columns: 34px 34px; gap: 5px; }
-.logo i { width: 34px; height: 34px; border-radius: 3px; animation: pop 0.5s var(--ease-out) both; }
+.logo { display: grid; grid-template-columns: 22px 22px; gap: 3px; }
+.logo i { width: 22px; height: 22px; animation: pop 0.5s var(--ease-out) both; }
 .logo i:nth-child(1) { background: #f25022; }
 .logo i:nth-child(2) { background: #7fba00; animation-delay: 0.08s; }
 .logo i:nth-child(3) { background: #00a4ef; animation-delay: 0.16s; }
 .logo i:nth-child(4) {
-  border: 2px dashed #ffb900;
+  border: 1.5px dashed #ffb900;
   animation: pop 0.5s var(--ease-out) 0.24s both, build 1.8s ease-in-out 0.8s infinite;
 }
 @keyframes pop {
@@ -27,28 +25,19 @@
 }
 @keyframes build {
   0%, 100% { background: rgba(255, 185, 0, 0); }
-  50% { background: rgba(255, 185, 0, 0.35); }
+  50% { background: rgba(255, 185, 0, 0.3); }
 }
 
-.eyebrow { margin: 36px 0 0; font-size: 14px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--blue); }
-.title { margin: 12px 0 0; font-size: clamp(40px, 6vw, 72px); font-weight: 600; letter-spacing: -0.04em; line-height: 1.05; }
-.body { margin: 20px 0 0; max-width: 520px; font-size: 18px; line-height: 1.55; color: var(--ink-2); text-wrap: pretty; }
-.path {
-  margin-top: 24px;
-  padding: 6px 12px;
-  border-radius: 6px;
-  background: #fff;
+.title { margin: 28px 0 0; font-size: clamp(28px, 3.6vw, 40px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.1; }
+.body { margin: 10px 0 0; font-size: 16px; color: var(--ink-3); }
+.button {
+  margin-top: 28px;
+  padding: 11px 22px;
+  border-radius: 999px;
   border: 1px solid var(--line-2);
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 13px;
-  color: var(--ink-3);
-  max-width: 100%;
-  overflow-wrap: anywhere;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 600;
+  transition: background 0.2s, border-color 0.2s;
 }
-.actions { margin-top: 36px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 16px 28px; }
-.primary { background: var(--ink); color: #fff; border-radius: 999px; padding: 14px 24px; font-size: 16px; font-weight: 600; }
-.primary:hover { background: #000; color: #fff; text-decoration: none; }
-.secondary { display: flex; align-items: center; gap: 8px; color: var(--ink); font-size: 16px; font-weight: 600; }
-.secondary:hover { color: var(--ink); }
-.original { margin-top: 40px; font-size: 14px; color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
-.original:hover { color: var(--ink); }
+.button:hover { background: var(--surface-2); border-color: var(--surface-2); color: var(--ink); text-decoration: none; }

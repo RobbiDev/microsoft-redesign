@@ -3,6 +3,7 @@ import Icon from '@/components/ui/Icon/Icon.jsx';
 import Logo from '@/components/ui/Logo/Logo.jsx';
 import { initials } from '@/data/site.js';
 import styles from './AccountPanel.module.css';
+import Link from '@/components/ui/Link/Link.jsx';
 
 export default function AccountPanel({ accounts, current, onSwitch, onClose }) {
   const [listOpen, setListOpen] = useState(false);
@@ -22,7 +23,7 @@ export default function AccountPanel({ accounts, current, onSwitch, onClose }) {
           <div className={styles.name}>{me.name}</div>
           <div className={styles.email}>{me.email}</div>
           <div className={styles.meta}>
-            <a href="/account">View account</a>
+            <Link href="/account">View account</Link>
             <span className={styles.plan}>{me.plan}</span>
           </div>
         </div>
@@ -53,14 +54,14 @@ export default function AccountPanel({ accounts, current, onSwitch, onClose }) {
       </div>
 
       <div className={styles.group}>
-        <a href="/account" className={styles.link}><Icon name="user" strokeWidth={1.4} /> Manage your Microsoft account</a>
-        <a href="/store/orders" className={styles.link}><Icon name="orders" strokeWidth={1.4} /> Orders and subscriptions</a>
+        <Link href="/account" className={styles.link}><Icon name="user" strokeWidth={1.4} /> Manage your Microsoft account</Link>
+        <Link href="/store/orders" className={styles.link}><Icon name="orders" strokeWidth={1.4} /> Orders and subscriptions</Link>
         <button className={styles.link} onClick={onClose}><Icon name="signOut" strokeWidth={1.4} /> Sign out of all accounts</button>
       </div>
 
       <div className={styles.legal}>
-        <a href="/privacy">Privacy</a>
-        <a href="/terms-of-use">Terms of use</a>
+        <Link href="/privacy">Privacy</Link>
+        <Link href="/terms-of-use">Terms of use</Link>
       </div>
     </div>
   );

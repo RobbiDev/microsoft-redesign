@@ -1,6 +1,8 @@
 // Copy for /microsoft-365/enterprise. Replaces "For enterprise", "Pricing for enterprise", the E3,
 // E5 and E7 pages, and the separate Office 365, frontline, nonprofit and government pricing pages.
 // Plans come from plans.js.
+import { asset } from '@/app/base.js';
+
 
 export const hero = {
   eyebrow: 'Microsoft 365 for enterprise',
@@ -10,12 +12,69 @@ export const hero = {
   secondary: { label: 'Talk to sales', href: '/microsoft-365/resources#contact-sales' },
 };
 
+const IMG = (dir, file) => asset(`/images/m365/${dir}/${file}.avif`);
+const ICON = (app) => asset(`/images/m365/icons/${app}.svg`);
+
 export const sectionNav = [
+  { label: 'AI for work', id: 'ai' },
   { label: 'Plans', id: 'plans' },
+  { label: 'Frontline', id: 'frontline' },
   { label: 'What’s different', id: 'differences' },
   { label: 'Add-ons', id: 'add-ons' },
   { label: 'FAQ', id: 'faq' },
 ];
+
+export const aiForWork = {
+  eyebrow: 'AI built for work',
+  title: 'Copilot and agents, grounded in your organization',
+  items: [
+    { title: 'Personal to you and your company', body: 'Copilot connects your own knowledge with your organization’s, so answers fit how you work.', image: IMG('enterprise', 'personalize') },
+    { title: 'Real-time, shared context', body: 'Combines everyday work with Microsoft 365 signals and line-of-business data.', image: IMG('enterprise', 'context') },
+    { title: 'Memory of how you work', body: 'Learns your style, preferences and routines to remember what matters.', image: IMG('enterprise', 'memory') },
+    { title: 'The right model for each task', body: 'Pick the best-fit AI model for consistent, high-quality results.', image: IMG('enterprise', 'models') },
+    { title: 'Start projects in chat', body: 'Create documents, spreadsheets and presentations right from Copilot Chat with the Word, Excel and PowerPoint agents.', image: IMG('enterprise', 'projects') },
+    { title: 'Agents for every team', body: 'Agents that take on work across Microsoft 365, with IT in control.', image: IMG('enterprise', 'agents') },
+    { title: 'Build your own with Copilot Studio', body: 'Employees build agents around their own workflows; IT keeps governance.', image: IMG('enterprise', 'copilot-studio') },
+  ],
+};
+
+export const copilotInApps = {
+  eyebrow: 'Copilot in your apps',
+  title: 'Help in every app you already use',
+  items: [
+    { title: 'Copilot in Teams', body: 'Recall who said what in meetings and suggest action items as you go.', icon: ICON('teams') },
+    { title: 'Copilot in Word', body: 'Write new content, edit documents and summarize text.', icon: ICON('word') },
+    { title: 'Copilot in Excel', body: 'Build data models and visuals from plain-language requests.', icon: ICON('excel') },
+    { title: 'Copilot in PowerPoint', body: 'Start a presentation from a single prompt.', icon: ICON('powerpoint') },
+    { title: 'Copilot in Outlook', body: 'Summarize threads, draft replies and turn notes into polished messages.', icon: ICON('outlook') },
+    { title: 'Work IQ', body: 'The intelligence layer that gives Copilot and agents real-time understanding of your work.' },
+  ],
+};
+
+export const frontline = {
+  eyebrow: 'Frontline workers',
+  title: 'Tools built for shifts, stores and the field',
+  body: 'F1 and F3 give frontline teams communication, scheduling and AI at a lower price. See them under the Frontline tab above.',
+  items: [
+    { title: 'AI on the frontline', body: 'In-the-moment answers, document summaries and step-by-step instructions.', image: IMG('frontline', 'ai') },
+    { title: 'Streamline processes', body: 'Custom agents automate tasks and look up inventory or policies.', image: IMG('frontline', 'processes') },
+    { title: 'Manage schedules anywhere', body: 'View and swap shifts, request time off and clock in from a phone.', image: IMG('frontline', 'schedules') },
+    { title: 'A simple home screen', body: 'A branded hub for company news, training and job resources.', image: IMG('frontline', 'home') },
+    { title: 'Unified communications', body: 'Chat, calls, channels and file sharing on one platform.', image: IMG('frontline', 'communications') },
+    { title: 'Targeted messages', body: 'Send updates to the right people by role, location or department.', image: IMG('frontline', 'messaging') },
+  ],
+};
+
+export const news = {
+  eyebrow: 'News',
+  title: 'What’s happening with Microsoft 365',
+  items: [
+    { title: 'Copilot Cowork is here', body: 'Take on complex, multi-step tasks grounded in your daily work.', href: '/microsoft-365/copilot' },
+    { title: 'Work IQ', body: 'A workplace intelligence layer for every agent.', href: '/microsoft-365/work-iq' },
+    { title: '2026 Work Trend Index', body: 'How organizational design shapes AI’s impact on everyday work.', href: '/microsoft-365/work-trend-index' },
+    { title: 'Microsoft Agent 365', body: 'The control plane for agents, using the protections you already have.', href: '/microsoft-365/agent-365' },
+  ],
+};
 
 // Tabs on the enterprise plans section; each maps to an audience in plans.js.
 export const planTabs = [

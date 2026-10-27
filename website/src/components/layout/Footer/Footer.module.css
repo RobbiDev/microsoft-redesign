@@ -34,6 +34,8 @@
 .locale:hover { border-color: var(--ink); }
 .privacy { display: flex; align-items: center; gap: 8px; }
 .spacer { flex: 1; }
+.project { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 13px; color: var(--muted); }
+.project a { color: var(--ink); font-weight: 600; }
 .legal { display: flex; flex-wrap: wrap; gap: 12px 24px; }
 
 @media (max-width: 719px) {

@@ -3,6 +3,7 @@ import Icon from '@/components/ui/Icon/Icon.jsx';
 import ImageSlot from '@/components/ui/ImageSlot/ImageSlot.jsx';
 import useDragScroll from '@/hooks/useDragScroll.js';
 import styles from './ProductCarousel.module.css';
+import Link from '@/components/ui/Link/Link.jsx';
 
 // A natively scrolling row: touch and trackpads scroll it continuously with momentum, the mouse can
 // drag it, and the arrows step one card. Scroll-snap settles it on a card when the motion stops.
@@ -68,7 +69,7 @@ export default function ProductCarousel({ products, phase = 'idle' }) {
                 <div className={styles.detailWrap}>
                   <p className={styles.detail}>{p.detail}</p>
                 </div>
-                <a href={p.href} className={`btn btn-light ${styles.cta}`} draggable={false}>{p.cta}</a>
+                <Link href={p.href} className={`btn btn-light ${styles.cta}`} draggable={false}>{p.cta}</Link>
               </div>
             </article>
           ))}

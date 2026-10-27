@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styles from './PlanCards.module.css';
+import Link from '@/components/ui/Link/Link.jsx';
 
 const money = (n) => `$${n.toFixed(2)}`;
 
@@ -43,9 +44,9 @@ export default function PlanCards({ plans, children }) {
                 {was && <s>{money(was)}</s>}
                 {amount > 0 && <span>{unit}</span>}
               </p>
-              <p className={styles.save}>{note || ' '}</p>
-              <a href={p.cta.href} className={styles.cta}>{p.cta.label}</a>
-              {p.trial && <a href={`${p.cta.href}/trial`} className={styles.trial}>Try free for one month</a>}
+              <p className={styles.save}>{note || (p.price?.noTeams ? `Without Teams: ${money(p.price.noTeams)}` : '\u00a0')}</p>
+              <Link href={p.cta.href} className={styles.cta}>{p.cta.label}</Link>
+              {p.trial && <Link href={`${p.cta.href}/trial`} className={styles.trial}>Try free for one month</Link>}
               {p.lead && <p className={styles.lead}>{p.lead}</p>}
               <ul className={p.lead ? '' : styles.noLead}>
                 {p.features.map((f) => <li key={f}>{f}</li>)}

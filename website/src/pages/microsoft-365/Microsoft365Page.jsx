@@ -11,6 +11,7 @@ import GetStarted from './components/GetStarted/GetStarted.jsx';
 import Faq from './components/Faq/Faq.jsx';
 import { faq, features, getStarted, hero, howItWorks, news, PLANS_PATH, plansSection, sectionNav, students, whatsIncluded } from './m365Content.js';
 import styles from './Microsoft365Page.module.css';
+import Link from '@/components/ui/Link/Link.jsx';
 
 // /microsoft-365 — Microsoft 365 for you and your family. Replaces "Explore Microsoft 365 apps",
 // "Pricing for individuals", the Personal, Family, Premium and Pro pages, and "Student discount pricing".
@@ -24,7 +25,7 @@ export default function Microsoft365Page() {
       <NewsCards items={news} />
       <WhatsIncluded id="whats-included" {...whatsIncluded} />
       <PlanSection {...plansSection} audience="personal">
-        <a href={PLANS_PATH} className={styles.compare}>Compare every plan side by side <Icon name="arrowSmall" /></a>
+        <Link href={PLANS_PATH} className={styles.compare}>Compare every plan side by side <Icon name="arrowSmall" /></Link>
       </PlanSection>
       <StudentOffer id="students" {...students} />
       <GetStarted title="Take the next step" items={getStarted} />

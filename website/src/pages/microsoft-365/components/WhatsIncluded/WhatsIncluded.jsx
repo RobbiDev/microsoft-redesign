@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { appsById } from '@/pages/microsoft-365/apps.js';
 import styles from './WhatsIncluded.module.css';
+import Link from '@/components/ui/Link/Link.jsx';
 
 export default function WhatsIncluded({ id, eyebrow, title, groups }) {
   const [tab, setTab] = useState(0);
@@ -16,14 +17,14 @@ export default function WhatsIncluded({ id, eyebrow, title, groups }) {
         </div>
         <div key={tab} className={styles.grid} role="tabpanel">
           {appsById(groups[tab].ids).map((app, i) => (
-            <a key={app.name} href={`/microsoft-365/apps#${app.id}`} className={styles.app} style={{ '--i': i }}>
+            <Link key={app.name} href={`/microsoft-365/apps#${app.id}`} className={styles.app} style={{ '--i': i }}>
               <img src={app.icon} alt="" width="44" height="44" />
               <div>
                 <h3>{app.name}</h3>
                 <p className={styles.tagline}>{app.tagline}</p>
                 <p className={styles.body}>{app.body}</p>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </div>
