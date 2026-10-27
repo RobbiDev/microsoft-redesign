@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Microsoft Redesign — Robby J</title>
+  <meta name="description" content="A collection of Microsoft product and site redesigns, built to practice UI/UX design." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="/">
+        <span class="logo" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        Microsoft Redesign
+      </a>
+      <nav>
+        <a href="#redesigns">Redesigns</a>
+        <a href="#about">About</a>
+        <a href="https://github.com/RobbiDev/microsoft-redesign" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <p class="eyebrow">Work in progress</p>
+      <h1>Microsoft Product UI Redesign</h1>
+      <p class="lede">A project dedicated to redesigning Microsoft products &amp; sites to practice my UI/UX design skills.</p>
+      <div class="actions">
+        <a class="btn primary" href="#redesigns">Browse redesigns</a>
+        <a class="btn" href="#about">Read the story</a>
+      </div>
+      <img class="hero-img" id="hero-img" src="https://raw.githubusercontent.com/RobbiDev/microsoft-redesign/main/headerV1.png" alt="Preview of the redesigns" />
+    </section>
+
+    <section id="redesigns" class="wrap section">
+      <div class="section-head">
+        <h2>Redesigns</h2>
+        <input id="filter" type="search" placeholder="Filter redesigns…" aria-label="Filter redesigns" />
+      </div>
+      <div id="grid" class="grid"></div>
+      <p id="empty" class="muted" hidden>No redesigns match that filter.</p>
+    </section>
+
+    <section id="about" class="wrap section">
+      <article id="readme" class="readme">
+        <p class="muted">Loading…</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <p class="muted">Personal design project. Not affiliated with or endorsed by Microsoft.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.6/purify.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
